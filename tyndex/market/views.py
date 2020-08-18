@@ -1,10 +1,11 @@
 from pprint import pprint
 
-from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, Http404
-from django.template import loader
 from django.contrib import messages
+from django.core.paginator import Paginator
+from django.http import HttpResponse, Http404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.template import loader
+
 from .models import Product, Article, Category, Order, ProductsInOrder, Customer
 
 PRODUCTS_PER_PAGE = 6

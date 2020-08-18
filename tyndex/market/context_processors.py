@@ -1,4 +1,4 @@
-from market.models import Section, Category
+from market.models import Section
 
 
 def menu_items(request):

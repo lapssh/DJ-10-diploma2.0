@@ -1,12 +1,12 @@
 from django.contrib import admin
-# Register your models here.
+
 from .models import Article
-from .models import Section
 from .models import Category
-from .models import Product
-from .models import Customer, User
+from .models import Customer
 from .models import Order
+from .models import Product
 from .models import ProductsInOrder
+from .models import Section
 
 
 class ArticleAdmin(admin.ModelAdmin):

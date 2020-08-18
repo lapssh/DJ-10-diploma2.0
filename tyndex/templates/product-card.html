@@ -1,12 +1,12 @@
 <div class="col-md-4">
     <h4>{{ product.name }}</h4>
     <a href="{% url 'product' product.category.section.slug product.category.slug product.slug %}">
-    <img src="{{ product.img.url }}" height="200" alt="{{ product.name }}">
+        <img src="{{ product.img.url }}" height="200" alt="{{ product.name }}">
     </a>
 
     <a href="{% url 'product' product.category.section.slug product.category.slug product.slug %}">
         {% if product.image %}
-            <p><img src="media/{{ product.img }}" height="100" alt="{{ product.name }}"></p>
+        <p><img src="media/{{ product.img }}" height="100" alt="{{ product.name }}"></p>
         {% endif %}
     </a>
     <form action="{% url 'add_to_cart' %}?product_id={{ product.id }}&next={{ request.path }}" method="post">

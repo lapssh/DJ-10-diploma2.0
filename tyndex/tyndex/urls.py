@@ -7,13 +7,15 @@ from market.views import index, view_all_articles, one_article, product_view, pr
     add_to_cart
 
 urlpatterns = [
+                  path('accounts/', include('accounts.urls')),
+                  path('articles/', include('articles.urls')),
+
                   path('index.html', index, name='index'),
+                  path('shop/', include('shop.urls')),
+
                   path('', index),
                   path('market/', include('market.urls')),
                   path('admin/', admin.site.urls),
-                  path('accounts/', include('django.contrib.auth.urls')),
-                  path('articles/read/<str:name>', one_article, name='one_article'),
-                  path('articles/', view_all_articles, name='view_all_articles'),
                   path('product_list_view', product_list_view, name='product_list_view'),
                   path('<str:section_slug>/<str:category_slug>/<str:slug>', product_view, name='product'),
                   path('<str:section_slug>/<str:category_slug>', product_list_view, name='products'),

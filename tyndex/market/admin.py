@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from .models import Article
+from articles.models import Article
 from .models import Category
-from .models import Customer
-from .models import Order
-from .models import Product
-from .models import ProductsInOrder
-from .models import Section
+from accounts.models import Customer
+from orders.models import Order
+from shop.models import Product
+from orders.models import ProductsInOrder
+from market.models import Section
 
 
 class ArticleAdmin(admin.ModelAdmin):

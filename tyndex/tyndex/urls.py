@@ -3,8 +3,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from market.views import index, view_all_articles, one_article, product_view, product_list_view, show_cart_view, \
-    add_to_cart
+from market.views import index
+
+from shop.views import product_view, product_list_view
+from orders.views import show_cart_view, add_to_cart
 
 urlpatterns = [
                   path('accounts/', include('accounts.urls')),

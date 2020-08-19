@@ -36,7 +36,6 @@ def product_list_view(request, section_slug=None, category_slug=None):
 def product_view(request, section_slug, category_slug, slug):
     category = get_object_or_404(Category, slug=category_slug)
     product = get_object_or_404(category.products, slug=slug)
-
     context = {'product': product, }
 
     return render(request, 'product.html', context)

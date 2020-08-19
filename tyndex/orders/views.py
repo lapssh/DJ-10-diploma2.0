@@ -25,8 +25,6 @@ def show_cart_view(request):
             print(cart[key]['product'], '\n')
         context['cart'] = cart
         context['products_count'] = len(cart)
-        print(80 * '=')
-        print(len(cart))
     return render(request, 'cart.html', context)
 
 
@@ -50,14 +48,10 @@ def add_to_cart(request):
 def order_view(request):
     if request.method == 'POST':
         cart = request.session['cart']
-        print('items: ', request.session.__dict__)
         customer_id_ = request.session['_auth_user_id']
         print('ID пользователя: ', request.session['_auth_user_id'])
         customer_pk = request.session['_auth_user_id']
-        print(cart)
         customer_ = Customer.objects.get(user_id=customer_id_)
-        print(customer_)
-
         cart = request.session['cart']
 
         if len(cart) > 0:

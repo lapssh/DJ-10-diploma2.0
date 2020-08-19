@@ -29,9 +29,12 @@ def product_list_view(request, section_slug=None, category_slug=None):
         }
 
         return render(request, 'product-list.html', context)
-    except:
-        raise Http404("Page does not exist")
-
+    except SyntaxError as Errr:
+        raise Http404('Ошбибка синтаксиса - ', Errr)
+    except NameError as Errr:
+        raise Http404('Name Error - ', Errr)
+    except Exception as Errr:
+        raise Http404("Возникла неучтенная ошибка, детали:  ", Errr)
 
 def product_view(request, section_slug, category_slug, slug):
     category = get_object_or_404(Category, slug=category_slug)

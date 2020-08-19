@@ -1,10 +1,13 @@
 from django.db import models
-
 from accounts.models import Customer
 from shop.models import Product
 
 
 class Order(models.Model):
+    """
+    Модель заказа используется менеджером, для отслеживания заказов покупателей.
+    Описана ManyToMany связью покупателей с продуктами. Помнит дату заказа
+    """
     customer = models.ForeignKey(Customer, related_name='customer',
                                  on_delete=models.CASCADE, verbose_name='Покупатель')
     products = models.ManyToManyField(Product, verbose_name='Товары', blank=True, through='ProductsInOrder')

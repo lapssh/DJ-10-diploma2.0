@@ -4,6 +4,11 @@ from shop.models import Product
 
 
 class Article(models.Model):
+    """
+    Модель описывает новости на сайте
+    Модель имеет заголовок, текст статьи и дату публикации.
+    Есть привязка к товарам, продаваемым в магазине.
+    """
     title = models.CharField(max_length=200, verbose_name='Кликбейтный заголовок')
     text = models.TextField(max_length=1500, verbose_name='Содержание статьи')
     published = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')

@@ -4,6 +4,11 @@ from market.models import Category
 
 
 class Product(models.Model):
+    """
+    Модель описывает товары в магазине.
+    Наименование, цену, артикул,слаг-имя для урлов и описание.
+    Имеет связь с категорией.
+    """
     name = models.CharField(max_length=100, verbose_name='Товар')
     price = models.DecimalField(max_digits=12, blank=False, verbose_name='Цена', decimal_places=2, default=0)
     product_number = models.IntegerField(blank=False, verbose_name='Артикул товара', unique=True)

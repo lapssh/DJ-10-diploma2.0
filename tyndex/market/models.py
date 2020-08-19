@@ -1,8 +1,11 @@
-from django.contrib.auth.models import User
 from django.db import models
 
 
 class Section(models.Model):
+    """
+    Модель позволяет менять панель навигации, добавляя/удаляя секции разделов
+    Имеет имея и слаг, для урлов.
+    """
     name = models.CharField(max_length=50, verbose_name='Наименование раздела')
     slug = models.SlugField(max_length=50, unique=True)
 
@@ -15,6 +18,10 @@ class Section(models.Model):
 
 
 class Category(models.Model):
+    """
+    Модель позволяет в разделах создавать подразделы - категории.
+    Обьлегчает навигацию, позволяет впихнуть невпихуемое.
+    """
     name = models.CharField(max_length=50, verbose_name='Наименование категории')
     section = models.ForeignKey(
         Section, related_name='categories', on_delete=models.PROTECT, verbose_name='Раздел'

@@ -4,9 +4,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from market.views import index
-
-from shop.views import product_view, product_list_view
 from orders.views import show_cart_view, add_to_cart
+from shop.views import product_view, product_list_view
 
 urlpatterns = [
                   path('accounts/', include('accounts.urls')),
@@ -14,9 +13,10 @@ urlpatterns = [
 
                   path('index.html', index, name='index'),
                   path('shop/', include('shop.urls')),
+                  path('market/', include('market.urls')),
 
                   path('', index),
-                  path('market/', include('market.urls')),
+
                   path('admin/', admin.site.urls),
                   path('product_list_view', product_list_view, name='product_list_view'),
                   path('<str:section_slug>/<str:category_slug>/<str:slug>', product_view, name='product'),

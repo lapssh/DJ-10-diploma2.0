@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
+from accounts.models import Customer
 from orders.models import Order, ProductsInOrder
 from shop.models import Product
 
@@ -26,7 +27,6 @@ def show_cart_view(request):
         context['products_count'] = len(cart)
         print(80 * '=')
         print(len(cart))
-        # pprint(context['cart'])
     return render(request, 'cart.html', context)
 
 

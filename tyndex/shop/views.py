@@ -7,6 +7,7 @@ from shop.models import Product
 
 PRODUCTS_PER_PAGE = 6
 
+
 def product_list_view(request, section_slug=None, category_slug=None):
     try:
 
@@ -30,6 +31,7 @@ def product_list_view(request, section_slug=None, category_slug=None):
         return render(request, 'product-list.html', context)
     except:
         raise Http404("Page does not exist")
+
 
 def product_view(request, section_slug, category_slug, slug):
     category = get_object_or_404(Category, slug=category_slug)

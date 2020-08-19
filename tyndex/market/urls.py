@@ -1,10 +1,8 @@
 from django.urls import path, include
 
-
+from orders.views import order_view
 from .views import cart
 from .views import index
-from orders.views import order_view
-
 
 handler404 = 'market.views.handler404'
 

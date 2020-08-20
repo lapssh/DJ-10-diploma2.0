@@ -19,10 +19,8 @@ def show_cart_view(request):
             'id', 'name', 'img', 'price', )
         for product in product_list:
             products[str(product['id'])] = product
-            print(products, '\n')
         for key in cart.keys():
             cart[key]['product'] = products[key]
-            print(cart[key]['product'], '\n')
         context['cart'] = cart
         context['products_count'] = len(cart)
     return render(request, 'cart.html', context)
@@ -49,7 +47,6 @@ def order_view(request):
     if request.method == 'POST':
         cart = request.session['cart']
         customer_id_ = request.session['_auth_user_id']
-        print('ID пользователя: ', request.session['_auth_user_id'])
         customer_pk = request.session['_auth_user_id']
         customer_ = Customer.objects.get(user_id=customer_id_)
         cart = request.session['cart']

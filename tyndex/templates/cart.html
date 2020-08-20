@@ -27,12 +27,17 @@
 
 
             </ul>
+                {% if user.is_authenticated %}
+                    <form class="card p-2" action="{% url 'order' %}" method="post">
+                         {% csrf_token %}
+                         <button type="submit" class="btn btn-secondary">Заказать</button>
+                    </form>
+                {% else %}
+        <a class="btn btn-outline-success my-2 my-sm-0" role="button"
+           href="/accounts/login/">
+            Вы не авторизованы - Войти</a>
+        {% endif %}
 
-            <form class="card p-2" action="{% url 'order' %}" method="post">
-                {% csrf_token %}
-
-                <button type="submit" class="btn btn-secondary">Заказать</button>
-            </form>
         </div>
     </div>
 
